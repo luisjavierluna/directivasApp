@@ -1,4 +1,4 @@
-<h1 class="mt-5">Agregar Producto</h1>
+<h1 class="mt-5">Agregar Producto <small>{{texto1}}</small></h1>
 <hr>
 
 <form [formGroup]="miFormulario">
@@ -12,6 +12,8 @@
         </div>
         <div class="col-auto">
             <span error-msg
+                  [mensaje]="texto1"
+                  [color]="color"
                   *ngIf="tieneError('nombre')">
             </span>
         </div>
@@ -19,8 +21,15 @@
 
     <div class="row mt-3">
         <div class="col">
-            <button class="btn btn-primary">
+            <button class="btn btn-primary"
+                    (click)="cambiarNombre()">
                 Guardar
+            </button>
+
+            &nbsp;
+            <button class="btn btn-primary ml-1"
+                    (click)="cambiarColor()">
+                Cambiar Color
             </button>
         </div>
     </div>
